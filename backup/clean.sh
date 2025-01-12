@@ -19,3 +19,15 @@
   yq d - 'status' | \
   cat
 ) 2>/dev/null
+
+# Example
+# oc get pvc etherpad -o yaml \
+#   | yq d - metadata.annotations \
+#   | yq d - metadata.creationTimestamp \
+#   | yq d - metadata.namespace \
+#   | yq d - metadata.finalizers \
+#   | yq d - metadata.resourceVersion \
+#   | yq d - metadata.uid \
+#   | yq d - spec.volumeName \
+#   | yq d - status \
+#   > production/01-pvc.yml
